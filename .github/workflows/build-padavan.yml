@@ -33,12 +33,12 @@ jobs:
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/qqww4540/padavan.git /opt/rt-n56u
-        cd /opt/rt-n56u/toolchain-mipsel
+        cd /opt/rt-n56u/toolchain
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P
+        TNAME: RM2100
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
