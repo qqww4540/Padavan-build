@@ -104,7 +104,7 @@ jobs:
       with:
         name: Padavan-packages
         path: /opt/images
-    - name: Upload binaries to release
+    - name: Upload firmware to release
       uses: svenstaro/upload-release-action@master
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
