@@ -105,7 +105,7 @@ jobs:
         name: Padavan-packages
         path: /opt/images
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
+      uses: softprops/action-gh-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
