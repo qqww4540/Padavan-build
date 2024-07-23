@@ -105,12 +105,13 @@ jobs:
         name: Padavan-packages
         path: /opt/images
     - name: Upload binaries to release
-      uses: softprops/action-gh-release@master
-      if: startsWith(github.ref, 'refs/tags/')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: svenstaro/upload-release-action@master
       with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: /opt/images/*.trx
+        tag: AtuoBuild
+        overwrite: true
+        file_glob: true
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
       with:
