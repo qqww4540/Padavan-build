@@ -108,3 +108,11 @@ jobs:
       with:
         name: Padavan-packages
         path: /opt/images
+    - name : Upload release
+      uses: svenstaro/upload-release-action@master
+      with:
+        repo_token: ${{ secrets.R_TOKEN }}
+        file: /opt/images/*.trx
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
