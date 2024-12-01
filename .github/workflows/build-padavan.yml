@@ -109,14 +109,13 @@ jobs:
         name: Padavan-packages
         path: /opt/images
     - name : Upload release
-      uses: svenstaro/upload-release-action@master
+      uses: softprops/action-gh-release@master
+      if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: /opt/images/*.trx
-        tag: ${{ github.ref }}
-        overwrite: true
-        file_glob: true
+        files: /opt/images/*.trx
+        tag_name: ${{ steps.tag.outputs.release_tag }}
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
       with:
