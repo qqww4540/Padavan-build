@@ -110,8 +110,9 @@ jobs:
         path: /opt/images
     - name : Upload release
       uses: svenstaro/upload-release-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
         tag: ${{ github.ref }}
         overwrite: true
