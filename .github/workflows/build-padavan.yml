@@ -114,7 +114,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         files: /opt/images/*.trx
-        tag: AtuoBuild
+        tag: AutoBuild
         overwrite: true
         file_glob: true
     - name: Delete workflow runs
