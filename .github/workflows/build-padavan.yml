@@ -42,7 +42,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: CR660x
+        TNAME: RM2100
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -63,7 +63,7 @@ jobs:
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
-        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n" >> .config
         ##科学上网##
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config #科学上网插件，选择n后全部有关插件都不集成
         echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #集成xray执行文件 ~4.5M
@@ -81,7 +81,7 @@ jobs:
 
         ##内网穿透服务##
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
         echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto ~0.5M
         echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n" >> .config #wireguard ~10k
         ##内网穿透服务##
