@@ -36,7 +36,7 @@ jobs:
         uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/qqww4540/padavan-4.4.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
